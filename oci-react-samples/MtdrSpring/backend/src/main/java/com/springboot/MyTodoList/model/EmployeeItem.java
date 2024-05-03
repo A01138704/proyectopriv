@@ -7,7 +7,7 @@ import javax.persistence.*;
     in the autonomous database
  */
 @Entity
-@Table(name = "EMPLEADO")
+@Table(name = "EMPLEADO", schema = "TODOUSER")
 public class EmployeeItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,14 @@ public class EmployeeItem {
     @Column(name = "estatus")
     boolean estatus;
 
+  //  @Column(name = "proyectoid")
+   // private int proyectoID; 
+   @ManyToOne
+   @JoinColumn(name = "PROYECTOID", referencedColumnName = "PROYECTOID" ) //
+   private ProjectItem proyectoID;
+
     @ManyToOne
-    @JoinColumn(name = "departamentoID")
+    @JoinColumn(name = "DEPARTAMENTOID", referencedColumnName = "DEPARTAMENTOID" ) // 
     private DepartmentItem departamentoID;
 
     public EmployeeItem() {
@@ -34,7 +40,7 @@ public class EmployeeItem {
     }
 
     public EmployeeItem(int empleadoID, String nombre, String apellido, String correo, String celular, String direccion,
-            boolean estatus, DepartmentItem departamentoID) {
+            boolean estatus, ProjectItem proyectoID, DepartmentItem departamentoID) {
         this.empleadoID = empleadoID;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -42,7 +48,9 @@ public class EmployeeItem {
         this.celular = celular;
         this.direccion = direccion;
         this.estatus = estatus;
+        this.proyectoID = proyectoID; // esto es nuevo 
         this.departamentoID = departamentoID;
+
     }
 
     public int getEmpleadoID() {
@@ -109,6 +117,17 @@ public class EmployeeItem {
         this.departamentoID = departamentoID;
     }
 
+    
+    public ProjectItem getProyectoID() {
+        return proyectoID;
+    }
+
+    public void setProyectoID(ProjectItem proyectoID) {
+        this.proyectoID = proyectoID;
+    }
+
+
+
     @Override
     public String toString() {
         return "ToDoItem{" +
@@ -119,7 +138,10 @@ public class EmployeeItem {
                 ", celular='" + celular +
                 ", direccion='" + direccion +
                 ", status=" + estatus +
+                ", proyectoID=" + proyectoID + // esto es nuevo porque no estaba en la db 
                 ", departmentID=" + departamentoID +
+            
                 '}';
     }
 }
+

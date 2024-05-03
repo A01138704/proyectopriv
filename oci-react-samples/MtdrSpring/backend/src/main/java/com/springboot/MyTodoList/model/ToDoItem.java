@@ -10,7 +10,7 @@ import java.time.OffsetDateTime;
 
  */
 @Entity
-@Table(name = "TAREA")
+@Table(name = "tarea", schema = "TODOUSER")
 public class ToDoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,23 +19,23 @@ public class ToDoItem {
     String nombre;
     @Column(name = "descripcion")
     String descripcion;
-    @Column(name = "fechaCreacion")
+    @Column(name = "fechacreacion")
     OffsetDateTime fechaCreacion;
     @Column(name = "estatus")
     boolean estatus;
-    @Column(name = "fechaLimite")
+    @Column(name = "fechalimite")
     OffsetDateTime fechaLimite;
-    @Column(name = "tipoTarea")
+    @Column(name = "tipotarea")
     String tipoTarea;
-
+    
     @ManyToOne
-    @JoinColumn(name = "empleadoID")
+    @JoinColumn(name = "empleadoid")
     private EmployeeItem empleadoID;
     @ManyToOne
-    @JoinColumn(name = "proyectoID")
+    @JoinColumn(name = "proyectoid")
     private ProjectItem proyectoID;
 
-    public ToDoItem() {
+    public ToDoItem() { 
 
     }
 

@@ -30,6 +30,27 @@ public class EmployeeItemService {
         }
     }
 
+    public ResponseEntity<EmployeeItem> getEmployeeItemById(int id) {
+        Optional<EmployeeItem> employeeData = employeeItemRepository.findById(id);
+        if (employeeData.isPresent()) {
+            return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    public EmployeeItem getEmployeeItemByCorreo(String correo) {
+        return employeeItemRepository.findByCorreo(correo);
+    }
+/* 
+    public List<EmployeeItem> getEmployeeItemByProyecto(String proyecto) {
+        List<EmployeeItem> employeeItems = employeeItemRepository.findByProyectoID(proyecto);
+        return employeeItems;
+    
+    } 
+   */
+
+
     public EmployeeItem addEmployeeItem(EmployeeItem employeeItem) {
         return employeeItemRepository.save(employeeItem);
     }

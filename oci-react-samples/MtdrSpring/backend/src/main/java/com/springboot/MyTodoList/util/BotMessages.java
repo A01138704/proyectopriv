@@ -3,19 +3,26 @@ package com.springboot.MyTodoList.util;
 public enum BotMessages {
 
 	HELLO_MYTODO_BOT(
-			"Hello! I'm MyTodoList Bot!\nType a new todo item below and press the send button (blue arrow), or select an option below:"),
-	BOT_REGISTERED_STARTED("Bot registered and started succesfully!"),
-	ITEM_DONE("Item done! Select /todolist to return to the list of todo items, or /start to go to the main screen."),
+			"¡Bienvenido al Chat Bot de Oracle! \nEscribe tu correo:"),
+	INITIAL_MESSAGE("Escribe una nueva tarea a continuación y envia el boton o selecciona una opción a continuacion:"),
+
+	BOT_REGISTERED_STARTED("¡Se registró correctamente el Bot!"),
+	ITEM_DONE(
+			"¡Tarea lista! Selecciona /todolist para desplegar todas las tareas o selecciona /start para ir a la pantalla principal."),
 	ITEM_UNDONE(
-			"Item undone! Select /todolist to return to the list of todo items, or /start to go to the main screen."),
+			"¡Tarea deshecha! Selecciona /todolist para desplegar todas las tareas o selecciona /start para ir a la pantalla principal."),
 	ITEM_DELETED(
-			"Item deleted! Select /todolist to return to the list of todo items, or /start to go to the main screen."),
-	TYPE_NEW_TODO_ITEM("Type a new todo item below and press the send button (blue arrow) on the rigth-hand side."),
+			"¡Tarea eliminada! Selecciona /todolist para desplegar todas las tareas o selecciona /start para ir a la pantalla principal."),
+	TYPE_NEW_TODO_ITEM("Escribe una nueva tarea y presiona el botón para agregarla a la lista de tareas."),
 	NEW_ITEM_ADDED(
-			"New item added! Select /todolist to return to the list of todo items, or /start to go to the main screen."),
+			"¡Nueva tarea agregada! Selecciona /todolist para desplegar todas las tareas o selecciona /start para ir a la pantalla principal."),
 	NEW_PROJECT_ADDED(
-			"New project added! Select/start to go to the main screen."),
-	BYE("Bye! Select /start to resume!");
+			"¡Nuevo proyecto agregado! Selecciona /start para ir a la pantalla principal."),
+	PROJECT_DONE("¡Proyecto listo! Selecciona /start para ir a la pantalla principal."),
+	PROJECT_UNDONE("¡Proyecto deshecho! Selecciona /start para ir a la pantalla principal."),
+	PROJECT_DELETED("¡Proyecto eliminado! Selecciona /start para ir a la pantalla principal."),
+	EMPLOYEE_PROJECT("Visualiza los empleados del proyecto. Selecciona /start para ir a la pantalla principal."),
+	BYE("¡Hasta pronto! Selecciona /start para empezar de nuevo.");
 
 	private String message;
 

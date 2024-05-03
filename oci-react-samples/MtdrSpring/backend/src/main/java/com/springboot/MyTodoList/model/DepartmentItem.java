@@ -7,7 +7,7 @@ import javax.persistence.*;
     in the autonomous database
  */
 @Entity
-@Table(name = "DEPARTAMENT")
+@Table(name = "departamento", schema = "TODOUSER")
 public class DepartmentItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

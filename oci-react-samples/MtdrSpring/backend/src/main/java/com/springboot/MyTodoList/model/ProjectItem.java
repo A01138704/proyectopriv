@@ -15,15 +15,16 @@ public class ProjectItem {
     int proyectoID;
     @Column(name = "nombre")
     String nombre;
-    @Column(name = "fechaInicio")
+    @Column(name = "fechainicio")
     OffsetDateTime fechaInicio;
-    @Column(name = "fechaFin")
+    @Column(name = "fechafin")
     OffsetDateTime fechaFin;
     @Column(name = "estatus")
     boolean estatus;
 
+    
     @ManyToOne
-    @JoinColumn(name = "departmentoID")
+    @JoinColumn(name = "departmentoid")
     private DepartmentItem departmentoID;
 
     public ProjectItem() {

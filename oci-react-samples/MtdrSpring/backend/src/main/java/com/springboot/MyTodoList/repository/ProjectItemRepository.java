@@ -11,5 +11,5 @@ import javax.transaction.Transactional;
 @Transactional
 @EnableTransactionManagement
 public interface ProjectItemRepository extends JpaRepository<ProjectItem, Integer> {
-
+    
 }

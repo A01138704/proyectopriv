@@ -10,18 +10,40 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class EmployeeItemController {
     @Autowired
     private EmployeeItemService employeeItemService;
 
+    /* 
+    // @CrossOrigin 
+    @GetMapping(value = "/empladodepartamento/{departamento}")
+    public List<EmployeeItem> getEmployeeItemByDepartamento(@PathVariable String departamento) {
+        return employeeItemService.getEmployeeItemByDepartamento(departamento);
+    }
+
+    // @CrossOrigin
+    @GetMapping(value = "/empleadoprojecto/{proyecto}")    
+    public List<EmployeeItem> getEmployeeItemByProyecto(@PathVariable String proyecto) {
+        return employeeItemService.getEmployeeItemByProyecto(proyecto); 
+    }
+*/
+    // @CrossOrigin 
+    @GetMapping(value = "/empleadoCorreo/{correo}") 
+    public EmployeeItem getEmployeeItemByCorreo(@PathVariable String correo) {
+        return employeeItemService.getEmployeeItemByCorreo(correo);
+    }çç
     // @CrossOrigin
     @GetMapping(value = "/empleadolist")
     public List<EmployeeItem> getAllToDoItems() {
-        return employeeItemService.findAll();
+        return employeeItemService.findAll(); 
     }
 
+    
     // @CrossOrigin
     @GetMapping(value = "/empleadolist/{id}")
     public ResponseEntity<EmployeeItem> getEmployeeItemById(@PathVariable int id) {
@@ -46,6 +68,19 @@ public class EmployeeItemController {
                 .headers(responseHeaders).build();
     }
 
+    //Get id of the employee by the mail 
+    /* *
+    @GetMapping(value = "/empleadolist/{correo}")
+    public ResponseEntity<EmployeeItem> getEmployeeItemByCorreo(@PathVariable String correo) {
+        try {
+            ResponseEntity<EmployeeItem> responseEntity = employeeItemService.getItemById(correo);
+            return new ResponseEntity<EmployeeItem>(responseEntity.getBody(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+*/
     // @CrossOrigin
     @PutMapping(value = "empleadolist/{id}")
     public ResponseEntity updateEmployeeItem(@RequestBody EmployeeItem employeeItem, @PathVariable int id) {
